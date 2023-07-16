@@ -117,8 +117,10 @@ q - выйти из логов
 
 ## Статусы файлов в Git  
 
-```Статусы untracked/tracked, staged и modified  
-состояние файла staged иногда называют indexed или cached```     
+```
+Статусы untracked/tracked, staged и modified  
+состояние файла staged иногда называют indexed или cached       
+```
 
 ## Игнорирование файлов в Git  
  
