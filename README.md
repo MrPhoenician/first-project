@@ -1,39 +1,40 @@
 ## Навигация
 
-pwd (print working directory) — покажи, в какой я папке;  
-ls (list directory contents) — покажи файлы и папки в текущей папке;  
-ls -a — покажи также скрытые файлы и папки, названия которых начинаются с символа . ;  
-cd first-project (change directory) — перейди в папку first-project;  
-cd first-project/html — перейди в папку html, которая находится в папке first-project;  
-cd .. — перейди на уровень выше, в родительскую папку;  
-cd ~ — перейди в домашнюю директорию (/Users/Username);  
-cd / — перейди в корневую директорию.
+`pwd` (print working directory) — покажи, в какой я папке;  
+`ls` (list directory contents) — покажи файлы и папки в текущей папке;  
+`ls -a` — покажи также скрытые файлы и папки, названия которых начинаются с символа . ;  
+`cd first-project` (change directory) — перейди в папку first-project;  
+`cd first-project/html` — перейди в папку html, которая находится в папке first-project;  
+`cd ..` — перейди на уровень выше, в родительскую папку;  
+`cd ~` — перейди в домашнюю директорию (/Users/Username);  
+`cd /` — перейди в корневую директорию.
 
 ## Работа с файлами и папками
 
 ### Создание
 
-touch index.html — создай файл index.html в текущей папке;  
-touch index.html style.css script.js — если нужно создать сразу несколько файлов, можно напечатать их имена в одну строку через пробел;  
-mkdir second-project (make directory) — создай папку с именем second-project в текущей папке.  
+`touch index.html` — создай файл index.html в текущей папке;  
+`touch index.html style.css script.js` — если нужно создать сразу несколько файлов, можно напечатать их имена в одну строку через пробел;  
+`mkdir second-project (make directory)` — создай папку с именем second-project в текущей папке.  
 Можно создать целую структуру директорий одной командой с помощью флага `-p`    
 
 ### Копирование и перемещение
 
-cp file.txt ~/my-dir (copy) — скопируй файл в другое место;  
-mv file.txt ~/my-dir (move) — перемести файл или папку в другое место.  
+`cp file.txt ~/my-dir` (copy) — скопируй файл в другое место;  
+`mv file.txt ~/my-dir` (move) — перемести файл или папку в другое место.  
 
 ### Чтение и редактирование текстовых файлов 
 
-cat file.txt (concatenate and print) — распечатай содержимое текстового файла file.txt.  
-echo "text" >> (file) - дописываем строку в конец файла    
-echo "text" > (file) - полностью стираем файл и вносим новую строку  
+`cat file.txt` (concatenate and print) — распечатай содержимое текстового файла file.txt.  
+`echo "text" >> (file)` - дописываем строку в конец файла    
+`echo "text" > (file)` - полностью стираем файл и вносим новую строку  
+`bash` - запуск файла   
 
 ### Удаление
 
-rm about.html (remove) — удали файл about.html;  
-rmdir images (remove directory) — удали папку images;  
-rm -r second-project (remove + recursive) — удали папку second-project и всё, что она содержит.  
+`rm about.html` (remove) — удали файл about.html;  
+`rmdir images` (remove directory) — удали папку images;  
+`rm -r second-project` (remove + recursive) — удали папку second-project и всё, что она содержит.  
 
 ### Полезные возможности
 
@@ -51,30 +52,29 @@ $ cat ~/.gitconfig
 
 ## Установка SSH
 
-'ls -la .ssh/' - вывели список созданных ключей
+`ls -la .ssh/` - вывели список созданных ключей   
 Для генерации SSH-пары можно использовать программу ssh-keygen. Откройте терминал и введите следующую команду.   
-'ssh-keygen'   
-'ssh-keygen -t ed25519 -C "электронная почта, к которой привязан ваш аккаунт на GitHub"'   
-Теперь осталось проверить, что ключи действительно сгенерировались.
-ls -a ~/.ssh 
+`ssh-keygen"`   
+`ssh-keygen -t ed25519 -C "электронная почта, к которой привязан ваш аккаунт на GitHub"`   
+Теперь осталось проверить, что ключи действительно сгенерировались - `ls -a ~/.ssh`    
 
 ## Привязываем SSH-ключ к GitHub  
 
 скопировать содержимое ключа в буфер обмена:  
-$ clip < ~/.ssh/id_rsa.pub  
+`clip < ~/.ssh/id_rsa.pub`     
 для ed25519:  
-$ clip < ~/.ssh/id_ed25519.pub  
+`clip < ~/.ssh/id_ed25519.pub`   
 
 ## Создание репозитория  
  
-Сделать папку репозиторием — git init  
-«Разгитить» папку, если что-то пошло не так, — rm -rf .git  
-Проверить состояние репозитория — git status  
+Сделать папку репозиторием — `git init`     
+«Разгитить» папку, если что-то пошло не так, — `rm -rf .git`   
+Проверить состояние репозитория — `git status`     
 
 ## Связывание репозиториев
 
 Проверьте правильность ключа с помощью следующей команды.  
-$ ssh -T git@github.com  
+`ssh -T git@github.com`     
 
 Привязать удалённый репозиторий к локальному — git remote add  
 ```
@@ -83,6 +83,7 @@ $ git remote add origin git@github.com:%ИМЯ_АККАУНТА%/first-project.g
 ```
 Команде необходимо передать два параметра: имя удалённого репозитория и его URL. В качестве имени используйте слово origin. А URL вы скопировали со страницы удалённого репозитория.  
 Убедиться, что репозитории связаны, — `git remote -v`    
+`git push origin main (or master)`   
 `git push -u origin main (or master)` — в первый раз загрузи все коммиты из локального репозитория в удалённый с названием origin.  
 ```
 $ git remote -v    
